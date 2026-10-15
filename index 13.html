@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050313">
+<title>Galaksi Caca 💗</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050313;color:white;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+body{background:radial-gradient(ellipse at 50% 48%,#32105d 0,#120a2c 34%,#050313 70%)}
+#stars{position:fixed;inset:0;background-image:radial-gradient(2px 2px at 15% 25%,#fff 45%,transparent 60%),radial-gradient(1px 1px at 65% 17%,#fff 45%,transparent 60%),radial-gradient(2px 2px at 85% 70%,#f8b9ff 45%,transparent 60%),radial-gradient(1px 1px at 28% 82%,#fff 45%,transparent 60%),radial-gradient(1px 1px at 46% 10%,#a8f7ff 45%,transparent 60%);background-size:220px 180px;opacity:.8;animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.4}}
+header{position:fixed;top:14px;width:100%;text-align:center;z-index:5;font-size:10px;letter-spacing:.24em;color:#d9c9ff;text-transform:uppercase}
+.title{position:fixed;top:54px;width:100%;text-align:center;z-index:5;pointer-events:none}
+h1{margin:0;font-size:clamp(32px,8vw,56px);text-shadow:0 0 18px #f16bff,0 0 40px #9b55ff}
+.subtitle{font-size:12px;color:#f3dfff;margin-top:7px;padding:0 20px}
+.universe{position:absolute;width:min(92vw,680px);height:min(92vw,680px);max-height:76vh;left:50%;top:49%;transform:translate(-50%,-50%)}
+.planet{position:absolute;left:50%;top:50%;width:clamp(95px,25vw,180px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 30% 28%,#ffe0f7,#bd9dff 28%,#7d48bb 58%,#291052 78%);box-shadow:0 0 28px #df87ffb0,0 0 90px #8c3bff75,inset -15px -10px 25px #120521}
+.planet:before{content:"";position:absolute;inset:-22%;border:2px solid #f4b6ff9c;border-left-color:#71f4e0a0;border-right-color:#bba4ff80;border-radius:50%;transform:rotate(-24deg) scaleY(.34);box-shadow:0 0 16px #ce8aff}
+.planet:after{content:"";position:absolute;inset:-36%;border:1px solid #8bf8e77a;border-radius:50%;transform:rotate(24deg) scaleY(.28)}
+.orbit{position:absolute;left:50%;top:50%;width:100%;height:55%;border:1px solid #e9aaff55;border-radius:50%;transform:translate(-50%,-50%) rotate(-24deg);box-shadow:0 0 14px #ba67ff2b}
+.orbit.two{width:82%;height:72%;transform:translate(-50%,-50%) rotate(28deg);border-color:#76f5dd55}
+.orbit.three{width:112%;height:42%;transform:translate(-50%,-50%) rotate(12deg);border-color:#f7c1ff50}
+.photo-orbit{position:absolute;inset:0;animation:spin 32s linear infinite}
+.photo-orbit.reverse{animation-duration:43s;animation-direction:reverse}
+.photo-orbit.slow{animation-duration:54s}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.photo{position:absolute;left:50%;top:50%;width:clamp(50px,13vw,84px);height:clamp(66px,17vw,108px);object-fit:cover;border:2px solid #ffd4f8;border-radius:10px;padding:2px;background:#211038;box-shadow:0 0 12px #ed9cffb0,0 0 24px #ad63ff50;transform:translate(-50%,-50%) rotate(var(--tilt));animation:counter 32s linear infinite}
+.reverse .photo{animation-name:counterReverse;animation-duration:43s}
+.slow .photo{animation-duration:54s}
+@keyframes counter{from{rotate:0deg}to{rotate:-360deg}}
+@keyframes counterReverse{from{rotate:0deg}to{rotate:360deg}}
+.photo:nth-child(1){--tilt:-9deg}.photo:nth-child(2){--tilt:7deg}.photo:nth-child(3){--tilt:4deg}.photo:nth-child(4){--tilt:-5deg}
+.controls{position:fixed;z-index:8;top:14px;right:12px;display:flex;gap:6px}
+button{color:#fff;background:#211238dc;border:1px solid #e8b4ff80;border-radius:22px;padding:8px 10px;font-size:11px;backdrop-filter:blur(8px)}
+#letter{display:none;position:fixed;z-index:10;inset:0;background:#050313eF;align-items:center;justify-content:center;padding:22px}
+.note{max-width:350px;border:1px solid #f5b8f4;border-radius:22px;padding:26px 22px;background:linear-gradient(145deg,#2c1041,#10142b);text-align:center;box-shadow:0 0 45px #bb6bff50}
+.note h2{color:#ffc9f3}.note p{line-height:1.7;font-size:14px}
+@media(max-height:650px){.universe{top:53%;width:min(82vw,500px);height:min(82vw,500px)}.title{top:52px}.subtitle{font-size:11px}}
+</style>
+</head>
+<body>
+<div id="stars"></div><header>A LITTLE UNIVERSE MADE FOR YOU</header>
+<div class="title"><h1>Caca ✦</h1><div class="subtitle">Di antara miliaran bintang, semesta ini punya satu nama favorit.</div></div>
+<div class="controls"><button id="open">Buka surat 💌</button></div>
+<main class="universe" aria-label="Foto-foto bergerak mengelilingi galaksi">
+ <div class="orbit"></div><div class="orbit two"></div><div class="orbit three"></div><div class="planet"></div>
+ <div class="photo-orbit" id="orbitA"></div><div class="photo-orbit reverse" id="orbitB"></div><div class="photo-orbit slow" id="orbitC"></div>
+</main>
+<div id="letter"><div class="note"><h2>Untuk Caca 💗</h2><p>Kalau setiap bintang punya cerita, aku ingin semua ceritaku berakhir di kamu. Semoga hari-harimu selalu dipenuhi hal baik, tawa, dan alasan untuk tersenyum. Kamu spesial, lebih dari yang bisa dijelaskan kata-kata. ✨</p><button id="close">Kembali ke galaksi ✨</button></div></div>
+<script>
+const photos = [
+'assets/foto-01.jpg','assets/foto-02.jpg','assets/foto-03.jpg','assets/foto-04.jpg',
+'assets/foto-05.jpg','assets/foto-06.jpg','assets/foto-07.jpg','assets/foto-08.jpg',
+'assets/foto-09.jpg','assets/foto-10.jpg','assets/foto-11.jpg','assets/foto-12.jpg',
+'assets/foto-13.jpg','assets/foto-14.jpg'];
+const orbits=[document.getElementById('orbitA'),document.getElementById('orbitB'),document.getElementById('orbitC')];
+photos.forEach((src,i)=>{
+ const lane=i%3, node=document.createElement('img');node.className='photo';node.src=src;node.alt='Kenangan Caca '+(i+1);
+ node.onerror=()=>{node.style.display='none';console.error('Foto tidak ditemukan:',src)};
+ const angle=(Math.floor(i/3)*360/5)+(lane*27);
+ const radius=lane===0?43:lane===1?34:48;
+ const rad=angle*Math.PI/180;
+ node.style.left=(50+Math.cos(rad)*radius)+'%';
+ node.style.top=(50+Math.sin(rad)*radius*.72)+'%';
+ orbits[lane].appendChild(node);
+});
+document.getElementById('open').onclick=()=>document.getElementById('letter').style.display='flex';
+document.getElementById('close').onclick=()=>document.getElementById('letter').style.display='none';
+document.getElementById('letter').onclick=e=>{if(e.target.id==='letter')e.currentTarget.style.display='none'};
+</script>
+</body></html>
